@@ -638,6 +638,7 @@ public class GameRules : MonoBehaviour
         //Combine Arrays of cards and player
         var player1Array = ValueHolder.p1val;
         var player2Array = ValueHolder.p2val;
+
         //Make it int
         var player1Convert = player1Array.Select(int.Parse).ToArray();
         var player2Convert = player2Array.Select(int.Parse).ToArray();
@@ -653,18 +654,34 @@ public class GameRules : MonoBehaviour
 
         int highestNumPlayer1 = 0;
         int highestNumPlayer2 = 0;
+
+        bool acePlayer1 = false;
+        bool acePlayer2 = false;
+
         foreach (var dc in duplicatedCardValuePlayer1)
         {
             if (dc.val >= 1)
             {
+                if(dc.key == 1)
+                {
+                    acePlayer1 = true;
+                    Debug.Log("There's an ace on player 1");
+                }
                 highestNumPlayer1 = dc.key;
+                Debug.Log("Highest Value: " + highestNumPlayer1);
             }
         }
         foreach (var dc in duplicatedCardValuePlayer2)
         {
             if (dc.val >= 1)
             {
+                if(dc.key == 1)
+                {
+                    acePlayer2 = true;
+                    Debug.Log("There's an ace on player 2");
+                }
                 highestNumPlayer2 = dc.key;
+                Debug.Log("Highest Value: " + highestNumPlayer2);
             }
         }
         if (highestNumPlayer1 > highestNumPlayer2)
@@ -677,7 +694,18 @@ public class GameRules : MonoBehaviour
         }
         else
         {
-            checkHand.text = "TIE";
+            if (acePlayer1)
+            {
+                checkHand.text = "Player 1 Win";
+            }
+            else if (acePlayer2)
+            {
+                checkHand.text = "Player 2 Win";
+            }
+            else
+            {
+                checkHand.text = "TIE";
+            }
         }
     }
 }
