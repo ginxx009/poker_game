@@ -694,11 +694,11 @@ public class GameRules : MonoBehaviour
         }
         else
         {
-            if (acePlayer1)
+            if (acePlayer1 && highestNumPlayer1 > highestNumPlayer2)
             {
                 checkHand.text = "Player 1 Win";
             }
-            else if (acePlayer2)
+            else if (acePlayer2 && highestNumPlayer2 < highestNumPlayer1)
             {
                 checkHand.text = "Player 2 Win";
             }
