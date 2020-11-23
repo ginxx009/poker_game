@@ -90,7 +90,7 @@ public class CardScript : MonoBehaviour
 
         //Debugging purposes
         //SCENARIO
-        //ValueHolder.shuffleDeck = new string[] { "1d", "11s", "4h", "10d", "12c", "1d", "11h", "1h", "1s" };
+        //ValueHolder.shuffleDeck = new string[] { "2d", "11s", "4h", "10d", "12c", "1d", "10h", "1h", "11s" };
         //ValueHolder.shuffleDeck = new string[] { "5s", "6s", "4s", "12s", "13d", "7s", "4d", "3s", "2s" };
         int tempCounter = 0;
         for (int i = 0; i < 9; i++)
